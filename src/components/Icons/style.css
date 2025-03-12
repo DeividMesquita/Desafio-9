@@ -1,0 +1,41 @@
+.c-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.c-icons__item {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.c-icons__item:hover {
+    background-color: #385A64;
+}
+
+.c-icons__item svg {
+    color: #fff;
+    width: 16px;
+    height: 16px;
+}
+
+.c-icons__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+   
+}
+
+.c-icons__actions .c-icons__item {
+    border: 1px solid #385a64;
+}
+
+.c-icons__actions .c-icons__item:hover{
+    box-shadow: 0px 0px 10px #385a64
+}

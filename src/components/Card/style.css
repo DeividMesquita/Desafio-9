@@ -1,0 +1,28 @@
+.c-cards__box {
+    border: 1px solid #385a64;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    transition: 0.2s;
+    margin-top: 32px;
+}
+
+.c-cards__box + .c-cards__box {
+    margin-top: 24px;
+}
+
+.c-cards__box:hover {
+    box-shadow: 0px 0px 10px #385A64;
+}
+
+.c-cards__title {
+    margin-bottom: 8px;
+}
+
+.c-cards__title h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+}

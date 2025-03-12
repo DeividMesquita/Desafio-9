@@ -1,0 +1,19 @@
+.c-button button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 157px;
+    height: 40px;
+    border-radius: 1.25rem;
+    border: 1px solid #ECECEC;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.c-button button:hover {
+    color: #fff;
+    background-color: #1B2E35;
+}

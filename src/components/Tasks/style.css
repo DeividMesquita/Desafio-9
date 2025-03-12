@@ -1,0 +1,39 @@
+.c-tasks {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.c-tasks__column {
+    max-width: 295px;
+    width: 100%;
+}
+
+.c-tasks__header {
+    align-items: center;
+    display: flex;
+    gap: 146px;
+    border-bottom: 1px solid #385A64;
+    justify-content: space-between;
+    padding-bottom: 4px;
+}
+
+.c-tasks__header__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.c-tasks__header__title h1 {
+    font-size: 21px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.c-tasks__header p {
+    font-size: 18px;
+    line-height: 24px;
+    color: #385A64;
+}
