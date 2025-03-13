@@ -5,9 +5,22 @@ import Button from "../Button";
 import data from "../../data/tasks";
 import { useState } from "react";
 import Modal from "../Modal";
+import Cancel from "../Cancel";
 
 function Tasks() {
   const [task, setTask] = useState(data);
+  const [showModal, setShowModal] = useState(false);
+  const [action, setAction] = useState("add");
+  const [showCancel, setShowCancel] = useState(false);
+
+  function handleShowModal(bool, act) {
+    setShowModal(bool);
+    setAction(act);
+  }
+
+  function handleShowCancel(bool) {
+    setShowCancel(bool);
+  }
 
   return (
     <>
@@ -24,17 +37,19 @@ function Tasks() {
               </div>
               <div className="c-tasks__cards">
                 {column.items.map((item, index) => (
-                  <Card key={index} title={item.title} />
+                  <Card key={index} title={item.title} showModal={handleShowModal} showCancel={handleShowCancel}/>
                 ))}
               </div>
               <div className="c-tasks__buttom d-flex justify-content-center mt-4">
-                <Button title="Add New Task" />
+                <Button title="Add New Task" action="add" showModal={handleShowModal}/>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <Modal />
+      {showCancel && <Cancel showCancel={handleShowCancel}/>}
+      {showModal && <Modal action={action} showModal={handleShowModal}/>}
+      
     </>
     
   );

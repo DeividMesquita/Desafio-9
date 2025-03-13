@@ -1,13 +1,13 @@
 import "./style.css";
 import Icons from "../Icons";
 
-function Card({ title }) {
+function Card({ title, showModal, showCancel }) {
   return (
     <div className="c-cards__box">
       <div className="c-cards__title">
         <h1>{title}</h1>
       </div>
-      <Icons />
+      <Icons showModal={showModal} showCancel={showCancel}/>
     </div>
   );
 }

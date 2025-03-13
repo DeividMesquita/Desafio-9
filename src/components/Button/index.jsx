@@ -1,9 +1,9 @@
 import './style.css';
 
-function Button({title}) {
+function Button({showModal, title, action}) {
   return (
     <div className='c-button'>
-      <button type="button">{title}</button>
+      <button type="button" onClick={() => showModal(true, action)}>{title}</button>
     </div>
   );
 }

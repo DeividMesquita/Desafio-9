@@ -1,11 +1,17 @@
 .c-header {
     background-color: #2C444E;
-    align-items: center;
-    height: 3.75rem;
     margin-bottom: 100px;
 }
 
 .c-header__logo {
+    height: 3.75rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-header__logo h1 {
     display: flex;
    justify-content: center;
+   margin: 0;
 }
