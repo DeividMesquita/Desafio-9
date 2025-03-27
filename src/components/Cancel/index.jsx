@@ -1,19 +1,30 @@
 import "./style.css";
 import Button from "../Button";
+import { useState } from "react";
 
-function Cancel({ showCancel }) {
+function Cancel({ showCancel, onDelete }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (onDelete) {
+      onDelete(); // Chama a função de deletar passada como prop
+    }
+    showCancel(false);
+  };
+
   return (
     <div className="cancel-container">
       <div className="cancel-box">
         <h2>Are you sure you want to delete this task?</h2>
-        <div className="cancel-buttons">
-          <button className="cancel-button" onClick={() => showCancel(false)}>
-              <Button title="Cancel it"/>
-          </button>
-          <div className="delete-button">
-            <Button title="Delete it" />
+        <form onSubmit={handleSubmit}>
+          <div className="cancel-buttons">
+            <div className="cancel-button" onClick={() => showCancel(false)}>
+              <Button title="Cancel it" />
+            </div>
+            <div className="delete-button">
+              <Button title="Delete it" className="delete-red" type="submit" />
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
