@@ -27,17 +27,20 @@ function Tasks() {
   const [showCancel, setShowCancel] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState(null);
 
+  // Função para abrir o modal de edição ou adição de tarefa
   function handleShowModal(bool, act, task = null) {
     setShowModal(bool);
     setAction(act);
     setTaskToEdit(task); // Define a tarefa a ser editada
   }
 
+  // Função para abrir o modal de cancelamento
   function handleShowCancel(bool, task = null) {
     setShowCancel(bool);
     setTaskToDelete(task);
   }
 
+  // Função para lidar com a exclusão de uma tarefa
   function handleDeleteTask(taskId, taskStatus) {
     const updatedTasks = task.map((column) => {
       if (column.status === taskStatus) {
@@ -53,7 +56,26 @@ function Tasks() {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     setShowCancel(false);
   }
+  
+  function handleUpTask(taskId, taskStatus) {
+    const updatedTasks = task.map((column) => {
+      if (column.status === taskStatus) {
+        const taskIndex = column.items.findIndex((item) => item.id === taskId);
+        if (taskIndex > 0) {
+          const reorderedItems = [...column.items];
+          const [movedTask] = reorderedItems.splice(taskIndex, 1);
+          reorderedItems.splice(taskIndex - 1, 0, movedTask);
+          return { ...column, items: reorderedItems };
+        }
+      }
+      return column;
+    });
 
+    setTask(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
+
+  // Função para lidar com o reordenamento das tarefas
   function reorder(list, startIndex, endIndex) {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
@@ -61,6 +83,7 @@ function Tasks() {
     return result;
   }
 
+  // Função chamada quando o drag and drop termina
   function onDragEnd(result) {
     if (!result.destination) {
       return;
@@ -68,10 +91,13 @@ function Tasks() {
 
     const { source, destination } = result;
 
-    
     if (source.droppableId === destination.droppableId) {
       const column = task.find((col) => col.status === source.droppableId);
-      const reorderedItems = reorder(column.items, source.index, destination.index);
+      const reorderedItems = reorder(
+        column.items,
+        source.index,
+        destination.index
+      );
 
       const updatedTasks = task.map((col) => {
         if (col.status === source.droppableId) {
@@ -81,9 +107,10 @@ function Tasks() {
       });
 
       setTask(updatedTasks);
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     }
   }
-   
+
   return (
     <>
       <div className="container-xxl">
@@ -98,13 +125,21 @@ function Tasks() {
                 <p className="m-0">{column.items.length} total</p>
               </div>
               <DragDropContext onDragEnd={onDragEnd}>
-                <Droppable droppableId={column.status} type="list" direction="vertical">
+                <Droppable
+                  droppableId={column.status}
+                  type="list"
+                  direction="vertical"
+                >
                   {(provided) => (
-                    <div ref={provided.innerRef} {...provided.droppableProps} className="c-tasks__cards">
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      className="c-tasks__cards"
+                    >
                       {column.items.map((item, index) => (
                         <Card
                           index={index}
-                          key={item.id} // Use item.id as the key
+                          key={item.id} // usa o id como chave única
                           title={item.title}
                           showModal={(bool, act) =>
                             handleShowModal(bool, act, {
@@ -118,6 +153,9 @@ function Tasks() {
                               id: item.id,
                               status: column.status,
                             })
+                          }
+                          upTask={() =>
+                            handleUpTask(item.id, column.status)
                           }
                         />
                       ))}

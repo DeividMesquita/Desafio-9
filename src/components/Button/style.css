@@ -1,4 +1,4 @@
-.c-button button {
+button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,17 +13,28 @@
     transition: all 0.3s;
 }
 
-.c-button button:hover {
+button:hover {
     color: #fff;
     background-color: #1B2E35;
+}
+
+.modal-button {
+    max-width: 113px !important;
+    width: 100% !important;
+}
+
+.cancel-it {
+    max-width: 119px !important;
+    
 }
 
 .delete-red {
     background-color: #FF4949;
     color: white;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 1.25rem;
     border: 1px solid #FF4949 !important;
+    max-width: 113px !important;
 
 }
 

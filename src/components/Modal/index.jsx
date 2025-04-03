@@ -145,7 +145,7 @@ function Modal({ showModal, action, task, setTask, taskToEdit }) {
               </div>
             </div>
             <div className="d-flex justify-content-end">
-              <Button title={"Confirm"} type="submit" />
+              <Button title={"Confirm"} type="submit" className="modal-button"/>
             </div>
           </form>
         </div>

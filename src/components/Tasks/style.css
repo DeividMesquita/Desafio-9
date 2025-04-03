@@ -1,15 +1,15 @@
 .c-tasks {
     display: flex;
     gap: 1.25rem;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 2.5rem;
     overflow-x: auto;
     scrollbar-width: none;
-    -ms-overflow-style: none; 
+    -ms-overflow-style: none;
 }
 
 .c-tasks::-webkit-scrollbar {
-    display: none; 
+    display: none;
 }
 
 .c-tasks__column {
@@ -47,4 +47,10 @@
     font-size: 1.125rem;
     line-height: 1.5rem;
     color: #385A64;
+}
+
+@media (max-width: 1270px) {
+   .c-tasks{
+    justify-content: flex-start;
+   }
 }
