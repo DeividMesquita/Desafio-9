@@ -6,6 +6,7 @@ import Button from "../Button";
 import data from "../../data/tasks";
 import Modal from "../Modal";
 import Cancel from "../Cancel";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 
 function Tasks() {
   const [task, setTask] = useState([]);
@@ -53,6 +54,36 @@ function Tasks() {
     setShowCancel(false);
   }
 
+  function reorder(list, startIndex, endIndex) {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+    return result;
+  }
+
+  function onDragEnd(result) {
+    if (!result.destination) {
+      return;
+    }
+
+    const { source, destination } = result;
+
+    
+    if (source.droppableId === destination.droppableId) {
+      const column = task.find((col) => col.status === source.droppableId);
+      const reorderedItems = reorder(column.items, source.index, destination.index);
+
+      const updatedTasks = task.map((col) => {
+        if (col.status === source.droppableId) {
+          return { ...col, items: reorderedItems };
+        }
+        return col;
+      });
+
+      setTask(updatedTasks);
+    }
+  }
+   
   return (
     <>
       <div className="container-xxl">
@@ -66,27 +97,36 @@ function Tasks() {
                 </div>
                 <p className="m-0">{column.items.length} total</p>
               </div>
-              <div className="c-tasks__cards">
-                {column.items.map((item, index) => (
-                  <Card
-                    key={index}
-                    title={item.title}
-                    showModal={(bool, act) =>
-                      handleShowModal(bool, act, {
-                        id: item.id,
-                        title: item.title,
-                        status: column.status,
-                      })
-                    }
-                    showCancel={() =>
-                      handleShowCancel(true, {
-                        id: item.id,
-                        status: column.status,
-                      })
-                    }
-                  />
-                ))}
-              </div>
+              <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId={column.status} type="list" direction="vertical">
+                  {(provided) => (
+                    <div ref={provided.innerRef} {...provided.droppableProps} className="c-tasks__cards">
+                      {column.items.map((item, index) => (
+                        <Card
+                          index={index}
+                          key={item.id} // Use item.id as the key
+                          title={item.title}
+                          showModal={(bool, act) =>
+                            handleShowModal(bool, act, {
+                              id: item.id,
+                              title: item.title,
+                              status: column.status,
+                            })
+                          }
+                          showCancel={() =>
+                            handleShowCancel(true, {
+                              id: item.id,
+                              status: column.status,
+                            })
+                          }
+                        />
+                      ))}
+
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
+              </DragDropContext>
               <div className="c-tasks__buttom d-flex justify-content-center mt-4">
                 <Button
                   title="Add New Task"

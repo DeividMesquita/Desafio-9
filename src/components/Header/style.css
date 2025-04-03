@@ -1,6 +1,7 @@
 .c-header {
     background-color: #2C444E;
     margin-bottom: 100px;
+    width: 100%;
 }
 
 .c-header__logo {
@@ -8,10 +9,24 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .c-header__logo h1 {
     display: flex;
-   justify-content: center;
-   margin: 0;
+    justify-content: center;
+    margin: 0;
+    font-size: 1.875rem;
+    line-height: 2.4375rem;
+}
+
+.c-header__logo--task,
+.c-header__logo--do {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.c-header__logo--to {
+    font-weight: 200;
+    color: #FFFFFF;
 }

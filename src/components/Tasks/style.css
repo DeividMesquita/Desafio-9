@@ -1,13 +1,21 @@
 .c-tasks {
     display: flex;
     gap: 1.25rem;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 2.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.c-tasks::-webkit-scrollbar {
+    display: none; 
 }
 
 .c-tasks__column {
-    max-width: 18.4375rem;
-    width: 100%;
+    min-width: 295px;
+    max-width: 295px;
+    width: 100% !important;
 }
 
 .c-tasks__header {
@@ -17,6 +25,8 @@
     border-bottom: 1px solid #385A64;
     justify-content: space-between;
     padding-bottom: 0.25rem;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .c-tasks__header__title {
