@@ -115,6 +115,7 @@ function Tasks() {
     <>
       <div className="container-xxl">
         <div className="c-tasks">
+        <div className="c-tasks__shadow"></div>
           {task.map((column, index) => (
             <div key={index} className="c-tasks__column">
               <div className="c-tasks__header">

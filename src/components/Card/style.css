@@ -2,10 +2,17 @@
     border: 1px solid #385a64;
     padding: 16px;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     border-radius: 8px;
     transition: 0.2s;
     margin-top: 32px;
+    max-width: 295px;
+    width: 100%;
+    max-height: 140px;
+    min-height: 140px;
+    height: 100%;
+    
 }
 
 .c-cards__box + .c-cards__box {
@@ -18,7 +25,13 @@
 
 .c-cards__title {
     margin-bottom: 8px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .c-cards__title h1 {

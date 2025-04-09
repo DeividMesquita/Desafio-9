@@ -4,7 +4,7 @@ import { BsArrowUp, BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 function Icons({showModal, showCancel, upTask}) {
   return (
       <div className="c-icons">
-        <button className="c-icons__item" onClick={() => upTask(true)}>
+        <button className="c-icons__item arrow" onClick={() => upTask(true)}>
           <BsArrowUp />
         </button>
         <div className="c-icons__actions">

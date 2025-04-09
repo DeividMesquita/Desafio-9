@@ -6,7 +6,10 @@
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
 }
+
+
 
 .c-tasks::-webkit-scrollbar {
     display: none;
@@ -53,4 +56,14 @@
    .c-tasks{
     justify-content: flex-start;
    }
+
+   .c-tasks__shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+}
 }
