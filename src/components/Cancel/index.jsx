@@ -16,7 +16,7 @@ function Cancel({ showCancel, onDelete }) {
       <div className="cancel-box">
         <h2>Are you sure you want to delete this task?</h2>
         <form onSubmit={handleSubmit}>
-          <div className="cancel-buttons">
+          <div className="cancel-button--div">
             <div className="cancel-button" onClick={() => showCancel(false)}>
               <Button title="Cancel it" className="cancel-it"/>
             </div>

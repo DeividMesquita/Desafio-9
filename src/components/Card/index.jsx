@@ -10,9 +10,9 @@ function Card({ title, showModal, showCancel, task, index, upTask }) {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="c-cards__box"
+          className="cards__box"
         >
-          <div className="c-cards__title">
+          <div className="cards__title">
             <h1>{title}</h1>
           </div>
           <Icons showModal={showModal} showCancel={showCancel} upTask={upTask}/>

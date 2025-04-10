@@ -3,15 +3,15 @@ import { BsArrowUp, BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 
 function Icons({showModal, showCancel, upTask}) {
   return (
-      <div className="c-icons">
-        <button className="c-icons__item arrow" onClick={() => upTask(true)}>
+      <div className="icons">
+        <button className="icons__item" onClick={() => upTask(true)}>
           <BsArrowUp />
         </button>
-        <div className="c-icons__actions">
-          <button className="c-icons__item" onClick={() => showModal(true, "edit")}>
+        <div className="icons__actions">
+          <button className="icons__item" onClick={() => showModal(true, "edit")}>
             <BsFillPencilFill/>
           </button>
-          <button className="c-icons__item" onClick={()=> showCancel(true)}>
+          <button className="icons__item" onClick={()=> showCancel(true)}>
             <BsFillTrashFill />
           </button>
         </div>

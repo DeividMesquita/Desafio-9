@@ -1,4 +1,4 @@
-.c-cards__box {
+.cards__box {
     border: 1px solid #385a64;
     padding: 16px;
     display: flex;
@@ -15,15 +15,15 @@
     
 }
 
-.c-cards__box + .c-cards__box {
+.cards__box + .cards__box {
     margin-top: 24px;
 }
 
-.c-cards__box:hover {
+.cards__box:hover {
     box-shadow: 0px 0px 10px #385A64;
 }
 
-.c-cards__title {
+.cards__title {
     margin-bottom: 8px;
     flex-wrap: wrap;
     overflow: hidden;
@@ -34,7 +34,7 @@
     -webkit-box-orient: vertical;
 }
 
-.c-cards__title h1 {
+.cards__title h1 {
     color: #fff;
     font-size: 18px;
     line-height: 22px;

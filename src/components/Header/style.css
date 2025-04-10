@@ -1,10 +1,10 @@
-.c-header {
+.header {
     background-color: #2C444E;
     margin-bottom: 100px;
     width: 100%;
 }
 
-.c-header__logo {
+.header__logo {
     height: 3.75rem;
     align-items: center;
     display: flex;
@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-.c-header__logo h1 {
+.header__logo h1 {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -20,13 +20,13 @@
     line-height: 2.4375rem;
 }
 
-.c-header__logo--task,
-.c-header__logo--do {
+.header__logo--task,
+.header__logo--do {
     color: #FFFFFF;
     font-weight: 700;
 }
 
-.c-header__logo--to {
+.header__logo--to {
     font-weight: 200;
     color: #FFFFFF;
 }

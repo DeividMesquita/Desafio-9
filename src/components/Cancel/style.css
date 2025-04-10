@@ -34,7 +34,7 @@
     text-align: center;
 }
 
-.cancel-buttons {
+.cancel-button--div {
     display: flex;
     gap: 1.5rem;
     margin-top: 2rem;
