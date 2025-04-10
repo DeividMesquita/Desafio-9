@@ -59,12 +59,13 @@
 
    .tasks__shadow {
     position: absolute;
+    background-image: url("/src/assets/img/image_720.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 4.375rem;
     top: 60px;
-    left: 0;
     right: 0;
     bottom: 0;
-    height: 193vh;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 97%, rgba(0, 0, 0, 0.5) 100%);
-    pointer-events: none;
 }
 }
